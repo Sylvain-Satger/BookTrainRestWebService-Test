@@ -6,6 +6,7 @@ import cucumber.annotation.en.When;
 import cucumber.runtime.PendingException;
 import junit.framework.Assert;
 import test.utils.HttpUtils;
+import test.utils.VarGlobales;
 import test.utils.XMLUtils;
 
 import org.w3c.dom.Document;
@@ -15,7 +16,7 @@ import org.w3c.dom.NodeList;
 import static org.junit.Assert.*;
 
 public class FindTrain {
-	public static int httpResponseCode;
+	public static String numTrain;
 	String villeDepart="";
 	String villeArrivee="";
 
@@ -38,11 +39,11 @@ public class FindTrain {
 	public void Je_recois_une_liste_de_trains() throws Exception {
 		//Envoi requête et vérification code retour
 		HttpUtils httpUtils = new HttpUtils();
-		httpResponseCode = -999;
+		VarGlobales.httpResponseCode = -999;
 		String url = "http://localhost:9992/rest/trains/search?departure=" + villeDepart + "&arrival=" + villeArrivee;
 		System.out.println(url);
 		String reponse = httpUtils.sendGet(url);
-		Assert.assertEquals(httpResponseCode, 200);
+		Assert.assertEquals(VarGlobales.httpResponseCode, 200);
 
 		// Vérification du contenu de la réponse XML
 		XMLUtils xmlUtils = new XMLUtils();
@@ -63,11 +64,11 @@ public class FindTrain {
 	public void Je_recois_une_liste_de_trains_vide() throws Exception {
 		//Envoi requête et vérification code retour
 		HttpUtils httpUtils = new HttpUtils();
-		httpResponseCode = -999;
+		VarGlobales.httpResponseCode = -999;
 		String url = "http://localhost:9992/rest/trains/search?departure=" + villeDepart + "&arrival=" + villeArrivee;
 		System.out.println(url);
 		String reponse = httpUtils.sendGet(url);
-		Assert.assertEquals(httpResponseCode, 200);
+		Assert.assertEquals(VarGlobales.httpResponseCode, 200);
 
 		// Vérification du contenu de la réponse XML
 		XMLUtils xmlUtils = new XMLUtils();

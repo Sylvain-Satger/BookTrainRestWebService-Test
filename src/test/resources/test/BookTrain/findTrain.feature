@@ -10,7 +10,7 @@ Scenario:
    And allant a Avignon.
    Then Je recois une liste de trains.
    
-#Recherche train allant de Lyon à Orange 
+#Recherche train allant de Lyon à Montpellier 
 Scenario: 
    When Je recherche les trains au depart de Lyon,
    And allant a Montpellier.

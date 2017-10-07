@@ -27,7 +27,7 @@ public class HttpUtils {
 		//add request header
 		con.setRequestProperty("User-Agent", USER_AGENT);
 
-		FindTrain.httpResponseCode = con.getResponseCode();
+		VarGlobales.httpResponseCode = con.getResponseCode();
 //		System.out.println("\nSending 'GET' request to URL : " + url);
 //		System.out.println("Response Code : " + BookTrain.httpResponseCode);
 
